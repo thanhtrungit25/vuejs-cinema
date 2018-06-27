@@ -6,6 +6,7 @@
         :key="index" 
         v-bind:movie="movie.movie"
         v-bind:sessions="movie.sessions"
+        v-bind:day="day"
       >
       </movie-item>
     </div>
@@ -22,7 +23,7 @@ import genres from '../util/genres';
 import MovieItem from './MovieItem.vue';
 
 export default {
-  props: ['genre', 'time', 'movies'],
+  props: ['genre', 'time', 'movies', 'day'],
   methods: {
     moviePassesGenderFilter(movie) {
       if (!this.genre.length) {
