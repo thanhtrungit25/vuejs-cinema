@@ -1,10 +1,22 @@
 <template>
   <div id="movie-filter">
     <h2>Movie Filter</h2>
+    <h3>By time of day</h3>
+    <div class="filter-group">
+      <check-filter
+        v-for="(time, index) in times" 
+        :key="index" 
+        v-bind:title="time" 
+        v-on:check-filter="checkFilter"
+        category="time"
+      ></check-filter>
+    </div>
+    <h3>By genre</h3>
     <div class="filter-group">
       <check-filter
         v-for="(genre, index) in genres" 
-        :key="index" 
+        :key="index"
+        category="genre"
         v-bind:title="genre" 
         v-on:check-filter="checkFilter"
       ></check-filter>
@@ -13,12 +25,14 @@
 </template>
 <script>
 import genres from '../util/genres';
+import times from '../util/times';
 import CheckFilter from './CheckFilter.vue';
 
 export default {
   data() {
     return {
       genres,
+      times,
     };
   },
   methods: {
