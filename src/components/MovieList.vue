@@ -38,6 +38,9 @@ export default {
       return this.movies.filter(this.moviePassesGenderFilter);
     },
   },
+  created() {
+    console.log(this.$moment);
+  },
   components: {
     MovieItem,
   },
