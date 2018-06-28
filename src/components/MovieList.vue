@@ -12,7 +12,7 @@
       </movie-item>
     </div>
     <div v-else-if="movies.length" class="no-results">
-      No Results.
+      {{ noResults }}
     </div>
     <div v-else>
       Loading...
@@ -59,9 +59,12 @@ export default {
         .filter(this.moviePassesGenderFilter)
         .filter(movie => movie.sessions.find(this.sessionPassesTimeFilter));
     },
-  },
-  created() {
-    console.log(this.$moment);
+    noResults() {
+      let times = this.time.join(', ');
+      let genres = this.genre.join(', ');
+      return `No results for ${times}
+        ${times.length && genres.length ? ', ' : ''} ${genres}.`;
+    },
   },
   components: {
     MovieItem,
