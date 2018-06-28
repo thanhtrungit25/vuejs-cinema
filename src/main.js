@@ -16,6 +16,14 @@ Object.defineProperty(Vue.prototype, '$bus', { get() { return this.$root.bus } }
 
 import OverView from './components/OverView.vue';
 
+import VueRouter from 'vue-router';
+import routes from './util/routes';
+Vue.use(VueRouter);
+
+const router = new VueRouter({
+  routes,
+});
+
 new Vue({
   el: '#app',
   data: {
@@ -34,5 +42,6 @@ new Vue({
       this.movies = response.data;
     });
     this.$bus.$on('check-filter', checkFilter.bind(this));
-  }
+  },
+  router
 });
