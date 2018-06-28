@@ -4,9 +4,6 @@ import './style.scss';
 import genres from './util/genres';
 import { checkFilter } from './util/bus';
 
-import MovieList from './components/MovieList.vue';
-import MovieFilter from './components/MovieFilter.vue';
-
 import VueResource from 'vue-resource';
 Vue.use(VueResource);
 
@@ -16,6 +13,8 @@ Object.defineProperty(Vue.prototype, '$moment', { get() { return this.$root.mome
 
 const bus = new Vue();
 Object.defineProperty(Vue.prototype, '$bus', { get() { return this.$root.bus } });
+
+import OverView from './components/OverView.vue';
 
 new Vue({
   el: '#app',
@@ -28,8 +27,7 @@ new Vue({
     bus
   },
   components: {
-    MovieList,
-    MovieFilter,
+    OverView
   },
   created() {
     this.$http.get('/api').then(response => {
