@@ -14,8 +14,6 @@ Object.defineProperty(Vue.prototype, '$moment', { get() { return this.$root.mome
 const bus = new Vue();
 Object.defineProperty(Vue.prototype, '$bus', { get() { return this.$root.bus } });
 
-import OverView from './components/OverView.vue';
-
 import VueRouter from 'vue-router';
 import routes from './util/routes';
 Vue.use(VueRouter);
@@ -33,9 +31,6 @@ new Vue({
     moment,
     day: moment(),
     bus
-  },
-  components: {
-    OverView
   },
   created() {
     this.$http.get('/api').then(response => {

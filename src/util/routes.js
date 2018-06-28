@@ -1,5 +1,5 @@
 import OverView from '../components/OverView.vue';
 
 export default [
-  { path: '/', OverView },
+  { path: '/', component: OverView },
 ]
