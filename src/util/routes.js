@@ -1,5 +1,8 @@
 import OverView from '../components/OverView.vue';
+import Detail from '../components/Detail.vue';
 
 export default [
-  { path: '/', component: OverView },
+  { path: '/', component: OverView, name: 'home' },
+  { path: '/movie', component: Detail, name: 'movie' },
+  { path: '*', redirect: { name: 'home' } }
 ]
